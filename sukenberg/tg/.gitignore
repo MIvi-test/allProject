@@ -1,0 +1,5 @@
+config.py
+.venv
+__pacache__
+data/photos
+test.py
