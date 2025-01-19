@@ -4,19 +4,11 @@ from aiogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeybo
 
 class Keyboards:
     @staticmethod
-    def skip_photo() -> InlineKeyboardMarkup:
+    def skip_photo() -> ReplyKeyboardMarkup:
         return InlineKeyboardMarkup(
             inline_keyboard=[
                 [
-                    InlineKeyboardButton(text="Создать резюме", callback_data="create_resume"),
-                    InlineKeyboardButton(text="Просмотреть резюме", callback_data="view_resumes")
-                ],
-                [
-                    InlineKeyboardButton(text="Скачать резюме", callback_data="download_resume"),
-                    InlineKeyboardButton(text="Редактировать резюме", callback_data="edit_resume")
-                ],
-                [
-                    InlineKeyboardButton(text="Удалить резюме", callback_data="delete_resume")
+                    InlineKeyboardButton(text="вернуться", callback_data='back')
                 ]
             ],
             resize_keyboard=True
@@ -27,17 +19,26 @@ class Keyboards:
         return ReplyKeyboardMarkup(
             keyboard=[
                 [
-                    KeyboardButton(text="/start"),
-                    KeyboardButton(text="/оценка")
-                ],
-                [
-                    KeyboardButton(text="/добавить"),
-                    KeyboardButton(text="/Редактировать")
-                ],
-                [
-                    KeyboardButton(text="Удалить из коллекции"),
+                    
+                    KeyboardButton(text="/оценка"),
                     KeyboardButton(text="/стоп")
+                    # KeyboardButton(text="/Редактировать")
+                ],
+                [
+                    KeyboardButton(text="/отложенное"),
+                    KeyboardButton(text="/добавить")
                 ]
             ],
             resize_keyboard=True
         )
+    @staticmethod
+    def inline_skip() -> InlineKeyboardMarkup:
+        return InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(text="СКИП!", callback_data='skip'),
+                    InlineKeyboardButton(text="повтор", callback_data='repeat')
+                ]
+            ]
+        )
+    
